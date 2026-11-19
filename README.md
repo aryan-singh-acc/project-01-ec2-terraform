@@ -1,5 +1,4 @@
 # Project 1 – AWS EC2 Web Server using Terraform
-
 [![Terraform CI Validation](https://github.com/aryan-singh-acc/project-01-ec2-terraform/actions/workflows/terraform-ci.yml/badge.svg)](https://github.com/aryan-singh-acc/project-01-ec2-terraform/actions/workflows/terraform-ci.yml)
 
 ## Overview
