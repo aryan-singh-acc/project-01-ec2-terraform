@@ -12,3 +12,8 @@ output "ec2_instance_id" {
   description = "EC2 instance ID"
   value       = aws_instance.web_server.id
 }
+
+output "ec2_availability_zone" {
+  description = "Availability Zone of the EC2 instance"
+  value       = aws_instance.web_server.availability_zone
+}
