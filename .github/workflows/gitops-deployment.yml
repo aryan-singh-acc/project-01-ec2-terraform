@@ -45,32 +45,12 @@ jobs:
           retention-days: 5
 
   terraform-apply:
-    name: Approved Terraform Apply
+    name: Terraform Apply - Disabled Pending Authorization
     needs: terraform-plan
+    if: ${{ false }}
     runs-on: ubuntu-latest
     environment: production
 
     steps:
-      - name: Checkout merged code
-        uses: actions/checkout@v4
-
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-2
-
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
-
-      - name: Terraform Initialize
-        run: terraform init -input=false
-
-      - name: Download Terraform Plan
-        uses: actions/download-artifact@v4
-        with:
-          name: project-18-terraform-plan
-
       - name: Terraform Apply
-        run: terraform apply -input=false -auto-approve tfplan
+        run: echo "Deployment is disabled pending AWS authorization and independent approval."
